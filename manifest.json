@@ -4,8 +4,8 @@
    */
   "name": "PrivaSee",
   "description": "Privacy for Noobs",
-  "version": "0.1",
-  "manifest_version": 2,
+  "version": "0.3",
+  "manifest_version": 3,
 
   /****************************************************************************
    *    Icons
@@ -42,7 +42,7 @@
     {
       "matches": ["http://*/", "https://*/"],
       "css": ["src/privasee.css"],
-      "js": ["src/privasee.js"]
+      "js": ["src/jquery-1.7.2.min.js","src/privasee.js"]
     }
   ],
 

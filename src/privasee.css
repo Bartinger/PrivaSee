@@ -1,0 +1,28 @@
+.pw-hint{
+	position: absolute;
+	border: 1px solid #999;
+	-webkit-border-radius: 5px;
+	background-color:#EEE;
+	color:black;
+	max-width:300px;
+	font-size: 14px;
+	padding:5px;
+   	margin-top:22px;
+}
+
+.pw-hint:after {
+	/*http://css-tricks.com/speech-bubble-arrows-that-inherit-parent-color/*/
+   content: "";
+   position: absolute;
+   top: -20px;
+   left: 10px;
+   border-bottom: 20px solid black;
+   border-bottom-color: #EEE; 
+   border-left: 20px solid transparent;
+   border-right: 20px solid transparent; 
+}
+
+.pw-hint h2{
+	font-size:20px;
+	color:#D31515;
+}
