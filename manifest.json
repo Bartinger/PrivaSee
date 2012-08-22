@@ -2,8 +2,8 @@
   /****************************************************************************
    *    Meta-information
    */
-  "name": "[EXTENSION NAME GOES HERE]",
-  "description": "[EXTENSION DESCRIPTION GOES HERE]",
+  "name": "PrivaSee",
+  "description": "Privacy for Noobs",
   "version": "0.1",
   "manifest_version": 2,
 
@@ -37,6 +37,14 @@
       "src/eventPage.js"
     ]
   },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/", "https://*/"],
+      "css": ["src/privasee.css"],
+      "js": ["src/privasee.js"]
+    }
+  ],
 
   /****************************************************************************
    *    Permissions:
