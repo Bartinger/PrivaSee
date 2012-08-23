@@ -5,7 +5,7 @@
   "name": "PrivaSee",
   "description": "Privacy for Noobs",
   "version": "0.0.1",
-  "manifest_version": 3,
+  "manifest_version": 2,
 
   /****************************************************************************
    *    Icons
@@ -23,8 +23,7 @@
    */
   "browser_action": {
     "default_icon": "icons/19.png", // optional
-    "default_title": "PrivaSee",    // optional; shown in tooltip
-    "default_popup": "src/popup.html"    // optional
+    "default_title": "PrivaSee"
   },
 
   /****************************************************************************
@@ -32,9 +31,7 @@
    *    - http://developer.chrome.com/trunk/extensions/event_pages.html
    */
   "background": {
-    "scripts": [
-      "src/background.js"
-    ]
+    "page": "src/background.html"
   },
 
   "content_scripts": [
@@ -53,7 +50,9 @@
     "storage", // https://developer.chrome.com/trunk/extensions/storage.html
     "webRequest",
     "webRequestBlocking",
-    "http://*/",
-    "https://*/"
+    "http://*/*",
+    "https://*/*",
+    "tabs",
+    "background"
   ]
 }

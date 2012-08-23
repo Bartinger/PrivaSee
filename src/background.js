@@ -31,4 +31,9 @@ console.log('listening');
    }
 };
 
+function onBrowserActionClick(tabs){
+   console.log(tabs);
+}
+
+chrome.browserAction.onClicked.addListener(onBrowserActionClick);
 chrome.extension.onMessage.addListener(onMessage);
