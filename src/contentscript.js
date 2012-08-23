@@ -9,8 +9,6 @@ function onFieldFocus(event){
 
 function onFieldFBlur(event){
 	$(".pw-hint").remove();
-	console.log(chrome);
-	chrome.pageAction.setIcon("icons/16-bad.png");
 }
 
 $(document).ready(function(){
@@ -19,3 +17,5 @@ $(document).ready(function(){
 		$("input[type='password']").blur(onFieldFBlur);
 	}
 });
+
+

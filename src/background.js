@@ -1,4 +1,4 @@
-// Copyright 2012, <OWNER>: License details can be found in LICENSE.markdown.
+// Copyright 2012, <ME>: License details can be found in LICENSE.markdown.
 var onHttpRequest = function onHttpRequest(details) {
    console.log('blocking');
    console.log(details);
@@ -35,4 +35,9 @@ console.log(chrome);
    }
 };
 
+function onBrowserActionClick(tabs){
+   console.log(tabs);
+}
+
+chrome.browserAction.onClicked.addListener(onBrowserActionClick);
 chrome.extension.onMessage.addListener(onMessage);
