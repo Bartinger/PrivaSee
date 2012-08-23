@@ -31,8 +31,16 @@ console.log('listening');
    }
 };
 
-function onBrowserActionClick(tabs){
-   console.log(tabs);
+var onBrowserActionClick = function onBrowserActionClick() {
+   safeModeEnabled = !safeModeEnabled;
+
+   var icon = {
+      path: safeModeEnabled ? '../icons/16-good.png' : '../icons/16-bad.png'
+// TODO: change icon per-tab
+   };
+   chrome.browserAction.setIcon(icon);
+
+   onMessage();
 }
 
 chrome.browserAction.onClicked.addListener(onBrowserActionClick);
