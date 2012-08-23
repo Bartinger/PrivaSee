@@ -12,6 +12,7 @@ Current features:
 Latter desperately needs things like white- and blacklisting of domains and a explanation of what's going on in case of a cancelled connection.
 
 Other, possible features:
+- block HTTP websites only if they attempt to send / set a cookie
 - block external scripts on websites with a password field
 - security tips for users (explanation of what it means not to encrypt connections, etc)
 - alert / block cookies on HTTP websites
