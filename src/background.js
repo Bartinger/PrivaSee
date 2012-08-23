@@ -1,36 +1,32 @@
-// Copyright 2012, <OWNER>: License details can be found in LICENSE.markdown.
+// Copyright 2012, PrivaSee: License details can be found in LICENSE.markdown.
+var safeModeEnabled = false;
 var onHttpRequest = function onHttpRequest(details) {
+// TODO: block only sites which have a cookie stored?
+// TODO: whitelisting
    console.log('blocking');
    console.log(details);
 
-   // TODO: block only external things
    return {
       cancel: true
    };
 };
 var onMessage = function onMessage(request, sender) {
-   console.log('sent');
-   console.log(request);
-
-   if (request.enabled) {
-  console.log(sender.tab);
-
-      var extras = ["blocking"];
+// TODO: change icon color accordingly
+   if (safeModeEnabled) {
+      var extras = ['blocking'];
       var requestFilter = {
-         urls: [sender.tab.url],
-         tabId: sender.tab.id,
-         types: ['xmlhttprequest', 'script', 'object']
+         urls: ['http://*/*'],
+         types: ['xmlhttprequest', 'script', 'object', 'image', 'other', 'stylesheet', 'sub_frame', 'main_frame']
       };
 
-console.log(chrome);
-      
+console.log('listening');
+
       chrome.webRequest.onBeforeRequest.addListener(
          onHttpRequest,
          requestFilter,
          extras
       );
    } else {
-      // TODO: create unique callback functions per tab (current implementation removes all listeners for all tabs at once!)
       chrome.webRequest.onBeforeRequest.removeListener(onHttpRequest);
    }
 };
