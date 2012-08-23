@@ -1,13 +1,23 @@
 // Copyright 2012, PrivaSee: License details can be found in LICENSE.markdown.
 var safeModeEnabled = false;
+var whitelist = [];
 var onHttpRequest = function onHttpRequest(details) {
 // TODO: block only sites which have a cookie stored?
 // TODO: whitelisting
    console.log('blocking');
    console.log(details);
 
+   var domain = details.url;
+   var result = false;
+   if (whitelist[domain]) {
+      result = window.confirm('You shall not pass! Do you really want to do establish an insecure connectioni to ' + domain + '?');
+      if (result) {
+         whitelist.push(domain);
+      }
+   }
+
    return {
-      cancel: true
+      cancel: !result
    };
 };
 var onMessage = function onMessage(request, sender) {
