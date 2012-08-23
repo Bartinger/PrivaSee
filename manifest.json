@@ -23,7 +23,7 @@
    */
   "browser_action": {
     "default_icon": "icons/19.png", // optional
-    "default_title": "[POPUP TITLE]",    // optional; shown in tooltip
+    "default_title": "PrivaSee",    // optional; shown in tooltip
     "default_popup": "src/popup.html"    // optional
   },
 
@@ -32,17 +32,15 @@
    *    - http://developer.chrome.com/trunk/extensions/event_pages.html
    */
   "background": {
-    "persistent": false,
     "scripts": [
-      "src/eventPage.js"
+      "src/background.js"
     ]
   },
 
   "content_scripts": [
     {
       "matches": ["http://*/", "https://*/"],
-      "css": ["src/privasee.css"],
-      "js": ["src/privasee.js"]
+      "js": ["src/contentscript.js"]
     }
   ],
 
@@ -51,6 +49,10 @@
    *    - https://developer.chrome.com/trunk/extensions/manifest.html#permissions
    */
   "permissions": [
-    "storage" // https://developer.chrome.com/trunk/extensions/storage.html
+    "storage", // https://developer.chrome.com/trunk/extensions/storage.html
+    "webRequest",
+    "webRequestBlocking",
+    "http://*/",
+    "https://*/"
   ]
 }
