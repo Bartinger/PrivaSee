@@ -35,7 +35,7 @@ var onBrowserActionClick = function onBrowserActionClick() {
    safeModeEnabled = !safeModeEnabled;
 
    var icon = {
-      path: safeModeEnabled ? '../icons/19-good.png' : '../icons/19-bad.png'
+      path: safeModeEnabled ? '../icons/16-good.png' : '../icons/16-bad.png'
 // TODO: change icon per-tab
    };
    chrome.browserAction.setIcon(icon);
