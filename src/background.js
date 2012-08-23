@@ -1,25 +1,16 @@
 // Copyright 2012, PrivaSee: License details can be found in LICENSE.markdown.
 var safeModeEnabled = false;
-var whitelist = [];
 var onHttpRequest = function onHttpRequest(details) {
-// TODO: block only sites which have a cookie stored?
-// TODO: whitelisting
+   // TODO: block only sites which have a cookie stored?
+   // TODO: whitelisting
    console.log('blocking');
    console.log(details);
 
-   var domain = details.url;
-   var result = false;
-   if (whitelist[domain]) {
-      result = window.confirm('You shall not pass! Do you really want to do establish an insecure connectioni to ' + domain + '?');
-      if (result) {
-         whitelist.push(domain);
-      }
-   }
-
    return {
-      cancel: !result
+      cancel: true
    };
 };
+
 var onMessage = function onMessage(request, sender) {
 // TODO: change icon color accordingly
    if (safeModeEnabled) {
@@ -29,13 +20,8 @@ var onMessage = function onMessage(request, sender) {
          types: ['xmlhttprequest', 'script', 'object', 'image', 'other', 'stylesheet', 'sub_frame', 'main_frame']
       };
 
-console.log('listening');
-
       chrome.webRequest.onBeforeRequest.addListener(
-         onHttpRequest,
-         requestFilter,
-         extras
-      );
+      onHttpRequest, requestFilter, extras);
    } else {
       chrome.webRequest.onBeforeRequest.removeListener(onHttpRequest);
    }
@@ -54,4 +40,4 @@ var onBrowserActionClick = function onBrowserActionClick() {
 }
 
 chrome.browserAction.onClicked.addListener(onBrowserActionClick);
-chrome.extension.onMessage.addListener(onMessage);
+chrome.extension.onMessage.addListener(onMessage); 

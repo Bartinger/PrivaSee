@@ -1,9 +1,22 @@
 PrivaSee
 ===============================
 
-This is boilerplate for an extension hackathon entry. You should replace this
-text with an actual description of the project you've put together.
+This project aims to help users know when unencrypted data is being sent over the network. More specifically, the user is made aware of unintenional use of HTTP.
 
+The current implementation is a rough proof-of-concept and barely usable for someone who has no idea what this is all about (lacking documentation and user guidance).
+
+Current features:
+- Warning for password fields on HTTP websites (shown on focus)
+- "Safe Mode" blocking all (!) HTTP connections
+
+Latter desperately needs things like white- and blacklisting of domains and a explanation of what's going on in case of a cancelled connection.
+
+Other, possible features:
+- block external scripts on websites with a password field
+- security tips for users (explanation of what it means not to encrypt connections, etc)
+- alert / block cookies on HTTP websites
+- security ranking for websites, including link and rating of TOS (PrivacyParrot.com, PrivacyScore.com, TOSDR.it)
+- love?
 
 License
 -------
