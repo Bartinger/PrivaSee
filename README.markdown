@@ -1,20 +1,9 @@
-Extension Hackathon Boilerplate
+PrivaSee
 ===============================
 
 This is boilerplate for an extension hackathon entry. You should replace this
 text with an actual description of the project you've put together.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ornare ornare
-semper. Praesent at nisi nulla. Sed massa dolor, sollicitudin sit amet
-vestibulum elementum, viverra non mauris. Nam risus elit, eleifend sed malesuada
-sit amet, blandit quis dui. Ut commodo, risus a fringilla viverra, magna purus
-gravida enim, eu porta arcu libero nec risus. Sed et nisl non ante imperdiet
-venenatis a eget lorem. Cras nisi sem, lobortis ac feugiat ut, convallis sit
-amet orci. Cras sed libero nec dui euismod condimentum nec sit amet risus. Fusce
-non purus augue. Aenean id dolor arcu. Integer vel magna mauris, a volutpat
-velit. Cras a erat mattis sapien laoreet tristique. Quisque orci nulla, eleifend
-vitae mattis non, dictum nec tellus. Ut ultrices magna a mi pharetra
-sollicitudin nec in metus.
 
 License
 -------
@@ -32,5 +21,5 @@ Please adjust the [LICENSE.markdown][4] file to taste._
 Authors
 -------
 
-* Jane Doe: http://example.com/
-* John Doe: http://example.com/
+* Thomas Tascheur: http://tomtasche.at/
+* Dominic Bartl: http://bartinger.at/

@@ -4,8 +4,8 @@
    */
   "name": "PrivaSee",
   "description": "Privacy for Noobs",
-  "version": "0.1",
-  "manifest_version": 2,
+  "version": "0.3",
+  "manifest_version": 3,
 
   /****************************************************************************
    *    Icons
@@ -40,7 +40,8 @@
   "content_scripts": [
     {
       "matches": ["http://*/", "https://*/"],
-      "js": ["src/contentscript.js"]
+      "css": ["src/contentscript.css"],
+      "js": ["src/jquery-1.7.2.min.js", "src/contentscript.js"]
     }
   ],
 
