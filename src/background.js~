@@ -1,8 +1,8 @@
 // Copyright 2012, PrivaSee: License details can be found in LICENSE.markdown.
 var safeModeEnabled = false;
 var onHttpRequest = function onHttpRequest(details) {
-   // TODO: block only sites which have a cookie stored?
-   // TODO: whitelisting
+// TODO: block only sites which have a cookie stored?
+// TODO: whitelisting
    console.log('blocking');
    console.log(details);
 
@@ -10,7 +10,6 @@ var onHttpRequest = function onHttpRequest(details) {
       cancel: true
    };
 };
-
 var onMessage = function onMessage(request, sender) {
 // TODO: change icon color accordingly
    if (safeModeEnabled) {
@@ -20,8 +19,13 @@ var onMessage = function onMessage(request, sender) {
          types: ['xmlhttprequest', 'script', 'object', 'image', 'other', 'stylesheet', 'sub_frame', 'main_frame']
       };
 
+console.log('listening');
+
       chrome.webRequest.onBeforeRequest.addListener(
-      onHttpRequest, requestFilter, extras);
+         onHttpRequest,
+         requestFilter,
+         extras
+      );
    } else {
       chrome.webRequest.onBeforeRequest.removeListener(onHttpRequest);
    }
@@ -31,7 +35,7 @@ var onBrowserActionClick = function onBrowserActionClick() {
    safeModeEnabled = !safeModeEnabled;
 
    var icon = {
-      path: safeModeEnabled ? '../icons/19-good.png' : '../icons/19-bad.png'
+      path: safeModeEnabled ? '../icons/16-good.png' : '../icons/16-bad.png'
 // TODO: change icon per-tab
    };
    chrome.browserAction.setIcon(icon);
@@ -40,4 +44,4 @@ var onBrowserActionClick = function onBrowserActionClick() {
 }
 
 chrome.browserAction.onClicked.addListener(onBrowserActionClick);
-chrome.extension.onMessage.addListener(onMessage); 
+chrome.extension.onMessage.addListener(onMessage);
