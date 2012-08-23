@@ -19,6 +19,15 @@ Other, possible features:
 - security ranking for websites, including link and rating of TOS (PrivacyParrot.com, PrivacyScore.com, TOSDR.it)
 - love?
 
+Usage
+-------
+
+- install extension
+- visit http://www.facebook.com (don't forget to log out first and take care not to visit https://...)
+- click in the password field: warning dialog appears
+- click extension icon in the upper right (enables Safe Mode)
+- reload http://www.facebook.com: doesn't work, because no HTTP connection is allowed
+
 License
 -------
 
