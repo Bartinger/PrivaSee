@@ -22,7 +22,7 @@
    */
   "browser_action": {
     "default_icon": "icons/19-bad.png", // optional
-    "default_title": "PrivaSee"
+    "default_title": "Toggle Safe-mode"
   },
 
   /****************************************************************************
