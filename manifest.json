@@ -14,7 +14,7 @@
     "16": "icons/16.png",
     "19": "icons/19.png",
     "48": "icons/48.png",
-    "129": "icons/128.png"
+    "128": "icons/128.png"
   },
 
   /****************************************************************************
@@ -36,7 +36,7 @@
 
   "content_scripts": [
     {
-      "matches": ["http://*/", "https://*/"],
+      "matches": ["http://*/*", "https://*/*"],
       "css": ["src/contentscript.css"],
       "js": ["src/jquery-1.7.2.min.js", "src/contentscript.js"]
     }
