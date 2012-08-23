@@ -11,7 +11,11 @@
    *    Icons
    */
   "icons": {
-    "19": "icons/19-bad.png",
+    "16": "icons/16.png",
+<<<<<<< HEAD
+=======
+    "19": "icons/19.png",
+>>>>>>> f71b8aa6fe23f411aeb92d61f6d9f4fb8c418f09
     "48": "icons/48.png",
     "128": "icons/128.png"
   },
@@ -21,7 +25,11 @@
    *    - http://developer.chrome.com/trunk/extensions/browserAction.html
    */
   "browser_action": {
+<<<<<<< HEAD
     "default_icon": "icons/19-bad.png", // optional
+=======
+    "default_icon": "icons/16-bad.png", // optional
+>>>>>>> f71b8aa6fe23f411aeb92d61f6d9f4fb8c418f09
     "default_title": "PrivaSee"
   },
 
