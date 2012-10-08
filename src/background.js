@@ -1,43 +1,40 @@
-// Copyright 2012, PrivaSee: License details can be found in LICENSE.markdown.
+//Copyright 2012, PrivaSee: License details can be found in LICENSE.markdown.
 var safeModeEnabled = false;
-var onHttpRequest = function onHttpRequest(details) {
-   // TODO: block only sites which have a cookie stored?
-   // TODO: whitelisting
-   console.log('blocking');
-   console.log(details);
-
-   return {
-      cancel: true
-   };
-};
+var ruleId = -1;
 
 var onMessage = function onMessage(request, sender) {
-// TODO: change icon color accordingly
-   if (safeModeEnabled) {
-      var extras = ['blocking'];
-      var requestFilter = {
-         urls: ['http://*/*'],
-         types: ['xmlhttprequest', 'script', 'object', 'image', 'other', 'stylesheet', 'sub_frame', 'main_frame']
-      };
+	// TODO: change icon color accordingly
+	if (safeModeEnabled) {
+		var rule = {
+			conditions : [ new chrome.declarativeWebRequest.RequestMatcher({
+				url : {
+					schemes : [ 'http' ]
+				}
+			}) ],
+			actions : [ new chrome.declarativeWebRequest.RedirectRequest({
+				redirectUrl : chrome.extension.getURL('src/blocked.html')
+			}) ]
+		};
 
-      chrome.webRequest.onBeforeRequest.addListener(
-      onHttpRequest, requestFilter, extras);
-   } else {
-      chrome.webRequest.onBeforeRequest.removeListener(onHttpRequest);
-   }
+		chrome.declarativeWebRequest.onRequest.addRules([ rule ], function(
+				rules) {
+			ruleId = rules[0].id;
+		});
+	} else {
+		chrome.declarativeWebRequest.onRequest.removeRules([ ruleId ]);
+	}
 };
 
 var onBrowserActionClick = function onBrowserActionClick() {
-   safeModeEnabled = !safeModeEnabled;
+	safeModeEnabled = !safeModeEnabled;
 
-   var icon = {
-      path: safeModeEnabled ? '../icons/19-good.png' : '../icons/19-bad.png'
-// TODO: change icon per-tab
-   };
-   chrome.browserAction.setIcon(icon);
+	var icon = {
+		path : safeModeEnabled ? '../icons/19-good.png' : '../icons/19-bad.png'
+	};
+	chrome.browserAction.setIcon(icon);
 
-   onMessage();
-}
+	onMessage();
+};
 
 chrome.browserAction.onClicked.addListener(onBrowserActionClick);
-chrome.extension.onMessage.addListener(onMessage); 
+chrome.extension.onMessage.addListener(onMessage);
