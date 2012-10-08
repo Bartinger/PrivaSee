@@ -30,14 +30,14 @@
    *    - http://developer.chrome.com/trunk/extensions/event_pages.html
    */
   "background": {
-    "page": "src/background.html"
+    "page": "background.html"
   },
 
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "css": ["src/contentscript.css"],
-      "js": ["src/jquery-1.7.2.min.js", "src/contentscript.js"]
+      "css": ["css/contentscript.css"],
+      "js": ["js/jquery-1.7.2.min.js", "js/contentscript.js"]
     }
   ],
 

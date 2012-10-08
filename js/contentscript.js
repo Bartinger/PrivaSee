@@ -11,9 +11,10 @@ function onFieldFocus(event){
 	$("div.pw-hint").mouseenter(onMouseOver);
 	$("div.pw-hint").mouseleave(onMouseOut);
 	$("div.pw-hint a").click(function(){
-		window.location.href = chrome.extension.getURL("src/about-https.html");
+		window.location.href = chrome.extension.getURL("about-https.html");
 	});
 }
+
 
 function onFieldFBlur(event){
 	focused = false;
