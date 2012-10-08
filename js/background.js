@@ -12,7 +12,7 @@ var onMessage = function onMessage(request, sender) {
 				}
 			}) ],
 			actions : [ new chrome.declarativeWebRequest.RedirectRequest({
-				redirectUrl : chrome.extension.getURL('src/blocked.html')
+				redirectUrl : chrome.extension.getURL('blocked.html')
 			}) ]
 		};
 
