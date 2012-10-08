@@ -11,8 +11,9 @@ var onMessage = function onMessage(request, sender) {
 					schemes : [ 'http' ]
 				}
 			}) ],
-			actions : [ new chrome.declarativeWebRequest.RedirectRequest({
-				redirectUrl : chrome.extension.getURL('blocked.html')
+			actions : [ new chrome.declarativeWebRequest.RedirectByRegEx({
+				from : '.*',
+				to : chrome.extension.getURL('blocked.html') + '#$0'
 			}) ]
 		};
 
